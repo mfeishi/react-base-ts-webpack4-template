@@ -1,0 +1,20 @@
+{
+  "name": "react-base-ts-webpack4-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfeishi/react-base-ts-webpack4-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfeishi/react-base-ts-webpack4-template/issues"
+  },
+  "homepage": "https://github.com/mfeishi/react-base-ts-webpack4-template#readme"
+}
