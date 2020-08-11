@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js"
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js",
+    "eslint": "eslint --ext .tsx,.ts --fix ./src"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,41 @@
   "bugs": {
     "url": "https://github.com/mfeishi/react-base-ts-webpack4-template/issues"
   },
-  "homepage": "https://github.com/mfeishi/react-base-ts-webpack4-template#readme"
+  "homepage": "https://github.com/mfeishi/react-base-ts-webpack4-template#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.0.0",
+    "eslint": "^7.6.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2",
+    "webpackbar": "^4.0.0"
+  }
 }

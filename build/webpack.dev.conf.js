@@ -15,8 +15,8 @@ const webpackDevConfig = merge(webpackBaseConfig,{
 	    compress: true,
 	    host: 'localhost',
 	    port: '8099',
-	    open: true,
-	    overlay: { warnings: false, errors: true },//在浏览器上全屏显示编译的errors或warnings
+	    open: false,
+	    overlay: { warnings: true, errors: true },//在浏览器上全屏显示编译的errors或warnings
 	    publicPath: '/',
 	    proxy: {
 		  '/test': {

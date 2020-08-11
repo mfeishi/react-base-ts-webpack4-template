@@ -4,9 +4,6 @@ const {
 } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
-	VueLoaderPlugin
-} = require("vue-loader");
 const srcPath = resolve(__dirname, '..', 'src');
 const isProd = process.env.NODE_ENV === 'production' ? true : false;
 
@@ -32,7 +29,7 @@ module.exports = {
 	    warnings: false,
 	},
 	entry: {
-		app: "./main.ts",
+		app: "./main.tsx",
 	},
 	output: {
 		path: resolve(__dirname, '..', 'dist'),
@@ -40,9 +37,8 @@ module.exports = {
 	},
 	resolve: {
 		modules: [srcPath, 'node_modules'], //解析模块时应该搜索的目录
-		extensions: ['.js', '.ts', '.vue', '.json'],
+		extensions: ['.js', '.ts', '.tsx' , '.json'],
 		alias: {
-			'vue$': 'vue/dist/vue.esm.js',
 			'@': srcPath
 		}
 	},
@@ -50,17 +46,35 @@ module.exports = {
 	module: {
 		rules: [
 			{
-					test: /\.tsx?$/,
-					loader: 'ts-loader',
-					exclude: /node_modules/,
-					options: {
-						appendTsSuffixTo: [/\.vue$/],
-					}
+				test: /\.(tsx?|js)$/,
+				use:['babel-loader','eslint-loader'],
+				// use:['babel-loader','ts-loader'],
+				// 开启缓存
+				// options: { cacheDirectory: true },
+				exclude: /node_modules/,
 			},
-			{
-				test: /\.vue$/,
-				loader: 'vue-loader'
-			},
+			// {
+			// 	test: /\.(ts|tsx)$/,
+			// 	enforce: true,
+			// 	use: [
+			// 	 {
+			// 	  loader: 'eslint-loader',
+			// 	  options: {
+			// 	   useEslintrc: true
+			// 	  }
+			// 	 }
+			// 	]
+			// },
+			// {
+			// 	test: /\.(tsx?|js)$/,
+			// 	loader:'babel-loader',
+			// 	exclude: /node_modules/,
+			// },
+			// {
+			// 	test: /\.(tsx?|js)$/,
+			// 	loader:'eslint-loader',
+			// 	exclude: /node_modules/,
+			// },
 			{
 				test: /\.css$/,
 				use: [
@@ -123,6 +137,5 @@ module.exports = {
 			chunkFilename: 'static/css/[id].[hash:8].css',
 			
 		}),
-		new VueLoaderPlugin(),
 	]
 }
