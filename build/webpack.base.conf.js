@@ -8,25 +8,25 @@ const srcPath = resolve(__dirname, '..', 'src');
 const isProd = process.env.NODE_ENV === 'production' ? true : false;
 
 module.exports = {
-	context:srcPath,
+	context: srcPath,
 	stats: { //控制台统计信息
-	    assets: true,
-	    builtAt: true,
-	    colors: true,
-	    chunks: false,
-	    children: false,
-	    env: true,
-	    entrypoints: false,
-	    errors: true,
-	    errorDetails: true,
-	    hash: true,
-	    modules: false, // 构建模块信息
-	    moduleTrace: true,
-	    performance: true,
-	    publicPath: true,
-	    timings: true,
-	    version: true,
-	    warnings: false,
+		assets: true,
+		builtAt: true,
+		colors: true,
+		chunks: false,
+		children: false,
+		env: true,
+		entrypoints: false,
+		errors: true,
+		errorDetails: true,
+		hash: true,
+		modules: false, // 构建模块信息
+		moduleTrace: true,
+		performance: true,
+		publicPath: true,
+		timings: true,
+		version: true,
+		warnings: false,
 	},
 	entry: {
 		app: "./main.tsx",
@@ -37,7 +37,7 @@ module.exports = {
 	},
 	resolve: {
 		modules: [srcPath, 'node_modules'], //解析模块时应该搜索的目录
-		extensions: ['.js', '.ts', '.tsx' , '.json'],
+		extensions: ['.js', '.ts', '.tsx', '.json'],
 		alias: {
 			'@': srcPath
 		}
@@ -45,27 +45,27 @@ module.exports = {
 	devtool: isProd ? false : 'cheap-module-eval-source-map',
 	module: {
 		rules: [
+			{
+				test: /\.(ts|tsx)$/,
+				enforce: 'pre',
+				use: [
+					{
+						loader: 'eslint-loader',
+						options: {
+							useEslintrc: true
+						}
+					}
+				]
+			},
 			// {
-			// 	test: /\.(ts|tsx)$/,
-			// 	enforce: true,
-			// 	use: [
-			// 	 {
-			// 	  loader: 'eslint-loader',
-			// 	  options: {
-			// 	   useEslintrc: true
-			// 	  }
-			// 	 }
-			// 	]
+			// 	test: /\.(tsx?|js)$/,
+			// 	loader:'eslint-loader',
+			// 	enforce: 'pre',
+			// 	exclude: /node_modules/,
 			// },
 			{
-				test: /\.(tsx?|js)$/,
-				loader:'eslint-loader',
-				enforce: 'pre',
-				exclude: /node_modules/,
-			},
-			{
 				test: /\.(tsx?)$/,
-				use:['babel-loader'],
+				use: ['babel-loader'],
 				// use:['babel-loader','ts-loader'],
 				// 开启缓存
 				// options: { cacheDirectory: true },
@@ -80,7 +80,7 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					!isProd ? 'style-loader' :
-					MiniCssExtractPlugin.loader,
+						MiniCssExtractPlugin.loader,
 					"css-loader"
 				]
 			},
@@ -88,7 +88,7 @@ module.exports = {
 				test: /\.less$/,
 				use: [
 					!isProd ? 'style-loader' :
-					MiniCssExtractPlugin.loader,
+						MiniCssExtractPlugin.loader,
 					"css-loader",
 					"less-loader"
 				]
@@ -136,7 +136,7 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: "[name].[chunkhash:8].css",
 			chunkFilename: 'static/css/[id].[hash:8].css',
-			
+
 		}),
 	]
 }

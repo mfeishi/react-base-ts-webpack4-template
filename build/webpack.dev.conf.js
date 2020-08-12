@@ -14,7 +14,7 @@ const webpackDevConfig = merge(webpackBaseConfig,{
 	    contentBase: false, // since we use CopyWebpackPlugin.
 	    compress: true,
 	    host: 'localhost',
-	    port: '8099',
+	    port: '8077',
 	    open: false,
 	    overlay: { warnings: true, errors: true },//在浏览器上全屏显示编译的errors或warnings
 	    publicPath: '/',
