@@ -45,14 +45,6 @@ module.exports = {
 	devtool: isProd ? false : 'cheap-module-eval-source-map',
 	module: {
 		rules: [
-			{
-				test: /\.(tsx?|js)$/,
-				use:['babel-loader','eslint-loader'],
-				// use:['babel-loader','ts-loader'],
-				// 开启缓存
-				// options: { cacheDirectory: true },
-				exclude: /node_modules/,
-			},
 			// {
 			// 	test: /\.(ts|tsx)$/,
 			// 	enforce: true,
@@ -65,14 +57,23 @@ module.exports = {
 			// 	 }
 			// 	]
 			// },
+			{
+				test: /\.(tsx?|js)$/,
+				loader:'eslint-loader',
+				enforce: 'pre',
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.(tsx?)$/,
+				use:['babel-loader'],
+				// use:['babel-loader','ts-loader'],
+				// 开启缓存
+				// options: { cacheDirectory: true },
+				exclude: /node_modules/,
+			},
 			// {
 			// 	test: /\.(tsx?|js)$/,
 			// 	loader:'babel-loader',
-			// 	exclude: /node_modules/,
-			// },
-			// {
-			// 	test: /\.(tsx?|js)$/,
-			// 	loader:'eslint-loader',
 			// 	exclude: /node_modules/,
 			// },
 			{
