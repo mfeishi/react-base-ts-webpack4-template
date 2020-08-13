@@ -6,7 +6,7 @@
     "module": "commonjs",
     // 以严格模式解析
     "strict": true,
-    // "jsx": "react",
+    "jsx": "react",
     // 从 tslib 导入外部帮助库: 比如__extends，__rest等
     "importHelpers": true,
     // 如何处理模块
@@ -34,8 +34,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    // 编译过程中需要引入的库文件的列表
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "outDir": "./dist"
   },
   // ts 管理的文件
   "include": [
