@@ -31,15 +31,12 @@
     // 设置引入的定义文件
     // "types": ["webpack-env", "mocha", "chai"], //todo
     // 指定特殊模块的路径
+    // "paths": {
+    //   "@/*": ["src/*"]
+    // },
     "paths": {
       "@/*": ["src/*"]
     },
     "outDir": "./dist"
-  },
-  // ts 管理的文件
-  "include": [
-    "src/*",
-  ],
-  // ts 排除的文件
-  "exclude": ["node_modules"]
+  }
 }

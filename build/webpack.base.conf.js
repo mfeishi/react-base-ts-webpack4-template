@@ -46,36 +46,12 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(ts|tsx)$/,
-				enforce: 'pre',
-				use: [
-					{
-						loader: 'eslint-loader',
-						options: {
-							useEslintrc: true
-						}
-					}
-				]
-			},
-			// {
-			// 	test: /\.(tsx?|js)$/,
-			// 	loader:'eslint-loader',
-			// 	enforce: 'pre',
-			// 	exclude: /node_modules/,
-			// },
-			{
 				test: /\.(tsx?)$/,
-				use: ['babel-loader'],
-				// use:['babel-loader','ts-loader'],
+				use: ['babel-loader','eslint-loader'],
 				// 开启缓存
 				// options: { cacheDirectory: true },
 				exclude: /node_modules/,
 			},
-			// {
-			// 	test: /\.(tsx?|js)$/,
-			// 	loader:'babel-loader',
-			// 	exclude: /node_modules/,
-			// },
 			{
 				test: /\.css$/,
 				use: [
